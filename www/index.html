@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>Jazz 101.6 Fm</title>  
+  <link rel="stylesheet" href="css/plugins.css"/>
+  <link rel="stylesheet" href="lib/onsen/css/onsenui.css">  
+  <link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css">  
+  
+  <link rel="stylesheet" href="css/app.css"/>
+  <link rel="stylesheet" href="css/demo.css"/>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+  <script src="lib/onsen/js/angular/angular.js"></script>    
+  <script src="lib/onsen/js/angular/angular-touch.js"></script>    
+  <script src="lib/onsen/js/onsenui.js"></script>    
+  <script src="js/jquery.min.js"></script>   
+  <script src="js/plugins.js"></script>    
+  <script src="cordova.js"></script>
+  <script src="js/app.js"></script>    
+  <script src="js/core.js"></script>
+  
+</head>
+
+<body> 
+	<script>
+        var enabledAdMob = true; // easily enable/disable AdMob
+        var admobid = {};
+        if( /(android)/i.test(navigator.userAgent) ) 
+        { 
+            admobid = { // for Android
+                banner: 'ca-app-pub-9758193265978664/8307345035', // or DFP format "/6253334/dfp_example_ad"
+                interstitial: 'ca-app-pub-xxx/yyy'
+            };
+        } 
+        else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) 
+        {
+            admobid = { // for iOS
+                banner: 'ca-app-pub-xxx/zzz', // or DFP format "/6253334/dfp_example_ad"
+                interstitial: 'ca-app-pub-xxx/kkk'
+            };
+        } 
+        else 
+        {
+            admobid = { // for Windows Phone
+                banner: 'ca-app-pub-xxx/zzz', // or DFP format "/6253334/dfp_example_ad"
+                interstitial: 'ca-app-pub-xxx/kkk'
+            };
+        }
+ 
+        function initApp() 
+        {
+            if (enabledAdMob) 
+            {
+                AdMob.createBanner({
+                    adId: admobid.banner,
+                    position: AdMob.AD_POSITION.TOP_CENTER,
+                    autoShow: true
+                });
+            }
+        }
+ 
+        document.addEventListener('deviceready', initApp, false);  
+    </script>  
+<ons-tabbar>
+    <ons-tab page="radio.html" label="Radio" icon="ion-radio-waves" active="true"></ons-tab>
+  <!--<ons-tab page="news.html" label="News" icon="ion-chatbox-working"></ons-tab>
+  <ons-tab page="about.html" label="About" icon="fa fa-info"></ons-tab>-->
+  <ons-tab page="tweet.html" label="Tweets" icon="ion-social-twitter"></ons-tab>
+  <ons-tab page="settings.html" label="Share" icon="fa fa-share-alt" onclick="window.plugins.socialsharing.share('JAZZ 101.6 FM, View our website ', 'The subject', 'http://www.jazzfm.co.ug/images/logo.png', 'http://www.jazzfm.co.ug/CC.html')">message,subject</ons-tab>
+</ons-tabbar>
+
+
+  
+</body>
+</html>
