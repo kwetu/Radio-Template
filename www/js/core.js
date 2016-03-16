@@ -1,38 +1,11 @@
 // ons.disableAutoStatusBarFill(); - Disable the status bar margin.
-var app = angular.module('app', ['onsen', 'ngAudio','twitter.timeline', 'admobModule']);
+var app = angular.module('app', ['onsen', 'ngAudio','twitter.timeline']);
 
 // tweet Controller
 /*
 *  AngularJS Directive for Twitter's Embedded Timeline with support for custom CSS.
 *  https://github.com/userapp-io/twitter-timeline-angularjs
 */
-
-app.config(['admobSvcProvider', function (admobSvcProvider) {
-      // Optionally you can configure the options here:
-      admobSvcProvider.setOptions({
-        publisherId:          "ca-app-pub-9758193265978664/8307345035",  // Required
-              
-      });
-
-      // Optionally configure the events prefix (by default set to 'admob:')
-      admobSvcProvider.setPrefix('myTag~');
-    }]);
-
-
-    app.run(['admobSvc', function (admobSvc) {
-      // Also you could configure the options here (or in any controller):
-      // admobSvcProvider.setOptions({ ... });
-
-      admobSvc.createBannerView();
-      // You could also call admobSvc.createBannerView(options);
-
-
-      // Handle events:
-      $rootScope.$on(admobSvc.events.onAdOpened, function onAdOpened(evt, e) {
-        console.log('adOpened: type of ad:' + e.adType);
-      });
-    }]);
-    
 
 angular.module('twitter.timeline', [])
 	.directive('twitterTimeline', [function() {
