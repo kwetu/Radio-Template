@@ -28,7 +28,7 @@
     <!--<gap:plugin name="org.apache.cordova.network-information" version="0.2.12" />
     <gap:plugin name="cordova-plugin-admob" source="npm" />-->
     
-    <gap:plugin name="com.admob.google" spec="4.0.8" source="pgb" />
+    
     
 
 </widget>
